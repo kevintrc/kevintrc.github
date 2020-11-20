@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: black;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+    filter: opacity(20%);
+}
+
+.footer {
+    background-color: rgba(0, 100, 0, 0.1);
+    ;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    text-align: center;
+    height: 60px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.footer h6 {
+    animation: fadeinout 4s 1s alternate;
+    animation-iteration-count: infinite;
+    vertical-align: middle;
+    line-height: 60px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+
+/*form              */
+
+.login-form {
+    padding: 50% 0;
+}
+
+.form-input {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.form-input::-webkit-input-placeholder {
+    color: white;
+    opacity: 0.1;
+}
+
+.form-header {
+    color: white;
+    opacity: 0.5;
+}
+
+#formBTN {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: aliceblue;
+    opacity: 0.5;
+
+}
+
+#formBTN :focus {
+    color: green;
+}
+
+.form-footer {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.form-footer a {
+    color: green;
+}
+
+
+#logger {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+}
+
+
+#leafimg {
+    position: fixed;
+    width=100%;
+    bottom: 0;
+    left: 0;
+    transform: rotate(180deg);
+    opacity: 0.05;
+    animation: fadeimage 4s 5s alternate;
+    animation-iteration-count: infinite;
+}
+
+
+
+
+
+
+
+
+
+@keyframes fadeinout {
+    0% {
+        color: rgba(255, 255, 255, 0.3)
+    }
+
+    100% {
+        color: rgba(0, 0, 0, 1);
+        transform: scale(1.2)
+    }
+}
+
+@keyframes fadeimage {
+    0% {
+        opacity: 0.05;
+    }
+
+    100% {
+        opacity: 0.15;
+    }
+}

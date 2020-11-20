@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KeralaTourism</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <video autoplay muted loop id="myVideo" poster="static/media/Kerala.jpg">
+        <source src="static/media/Kerala.mp4" type="video/mp4">
+    </video>
+
+
+    <!--------------------------------------------------------->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 col-lg-4">
+                <div class="wrap">
+                    <form class="login-form" name="myForm" action="home.html" onsubmit="return validate()">
+                        <div class="form-header">
+                            <h3>Sign up Form</h3>
+                            <p>Sign in to get access</p>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="email@example.com" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" placeholder="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="formBTN" name="submit" value="Sign in" />
+                        </div>
+                        <div class="form-footer">
+                            Already have an account? <a href="../index.html"><br>Login here</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-2 "></div>
+            <div class="col-4 d-none d-lg-block" style="text-align: right;position: relative;right: 10%;">
+                <br><br> <br><br>
+                <br><br>
+                <h1 style="color: wheat">Welcome</h1><br>
+                <p style="font-size: 4rem;color: wheat">To <span style="color: green">God's Own Country</span></p>
+            </div>
+        </div>
+    </div>
+    <img src="static/media/leaf.png" id="leafimg" style="z-index: -1">
+
+    <nav class="footer">
+        <h6>KERALA TOURISM</h6>
+    </nav>
+
+    <script>
+        const passBox = myForm.password;
+        const emailBox = myForm.email;
+        const phoneBox = myForm.phone;
+
+
+        myForm.password.addEventListener("keyup", function() {
+            var strength = 0;
+            if (/^(.{0,7})$/.test(myForm.password.value.trim()) === true)
+                strength = 0;
+            else
+                strength = 1;
+            if (/^([^A-Z]*)$/.test(passBox.value.trim()) === false && strength > 0)
+                strength++;
+            if (/^([^a-z]*)$/.test(passBox.value.trim()) === false && strength > 0)
+                strength++;
+            if (/^([^0-9]*)$/.test(passBox.value.trim()) === false && strength > 0)
+                strength++;
+            switch (strength) {
+                case 0:
+                    passBox.style.backgroundColor = "maroon";
+                    break;
+                case 1:
+                    passBox.style.backgroundColor = "red";
+                    break;
+                case 2:
+                    passBox.style.backgroundColor = "orange";
+                    break;
+                case 3:
+                    passBox.style.backgroundColor = "yellow";
+                    break;
+
+                case 4:
+                    passBox.style.backgroundColor = "lightgreen";
+                    break;
+            }
+            if (passBox.value.trim() == "") passBox.style.backgroundColor = "rgba(0, 0, 0, 0.3)";
+        })
+
+        function validate() {
+            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(emailBox.value.trim()) === false) {
+                alert("INVALID EMAIL");
+                return false;
+            }
+            if (/^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*)$/.test(passBox.value.trim()) === true) {
+                alert("Password criterion not met");
+                return false;
+            }
+            var flag = false;
+            if ((/^([0-9]{3}).([0-9]{3}).([0-9]{4})$/g.test(phoneBox.value.trim())) == true)
+                flag = true;
+            if ((/^([0-9]{3})-([0-9]{3})-([0-9]{4})$/g.test(phoneBox.value.trim())) == true)
+                flag = true;
+            if ((/^([0-9]{3}) ([0-9]{3}) ([0-9]{4})$/g.test(phoneBox.value.trim())) == true)
+                flag = true;
+            if ((/^([0-9]{10})$/g.test(phoneBox.value.trim())) == true)
+                flag = true;
+            if (flag == false) {
+                alert("Phone number not in correct format");
+                return false;
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
