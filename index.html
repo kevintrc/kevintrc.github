@@ -99,12 +99,16 @@
         })
 
         function validate() {
-            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(emailBox.value.trim()) === false) {
+            if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(emailBox.value.trim()) === false) {
                 alert("INVALID EMAIL");
                 return false;
             }
             if (/^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*)$/.test(passBox.value.trim()) === true) {
-                alert("Password criterion not met");
+                alert(`Password criterion not met
+Minimum 8 characters
+At least one uppercase
+Atleast one lower case
+At least one number`)
                 return false;
             }
 
